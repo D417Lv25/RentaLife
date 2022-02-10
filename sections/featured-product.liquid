@@ -23,7 +23,8 @@
 
 {%- assign product = section.settings.product -%}
 
-{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+
+{% assign product = all_products[product] %}{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
@@ -270,6 +271,7 @@
 
                     {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+{% render 'bsub-widget', product: product %}
                       <div class="product-form__buttons">
                         <button
                           type="submit"
