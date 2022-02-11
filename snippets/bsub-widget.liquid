@@ -90,7 +90,7 @@
                 </g>
               </svg>
               <div class="bsub-widget__text">
-                <span>{{- group.name -}}</span>
+                <span>{{- group.name -}}あああ</span>
                 <br/>
                 <span
                   class="bsub-widget__group-discount-summary"
@@ -112,9 +112,6 @@
         data-bsub-selling-plans-container
       >
         <fieldset>
-          <legend>
-            Delivery Frequency
-          </legend>
           {% for plan in group.selling_plans %}
             <div
               class="bsub-widget__plan"
@@ -139,12 +136,11 @@
                     <circle cx="9" cy="9" r="8.5" stroke="black" stroke-opacity="0.2"/>
                   </svg>
                   <div class="bsub-widget__text">
-                    {{- plan.name -}}
+                    設置・回収無料
                   </div>
                   <div class="bsub-widget__plan-pricing">
+                    <span data-bsub-delivery-frequency>毎月</span>
                     <span data-bsub-per-delivery-price></span>
-                    <span>&nbsp;/&nbsp;</span>
-                    <span data-bsub-delivery-frequency>delivery</span>
                   </div>
                 </div>
               </label>
@@ -154,6 +150,8 @@
       </div>
     {% endfor %}
   </div>
+
+  <div class="mgbt"></div>
 
   <input
     type="hidden"

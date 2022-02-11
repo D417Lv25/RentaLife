@@ -192,6 +192,9 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+
+    <meta name="bold-checkout-styles" content="{{ 'bold-checkout.css' | asset_url }}">
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -210,6 +213,7 @@
     }
     </script>
     {%- render 'bold-subscription-widget' -%}
+
 </head>
 
   <body class="gradient">
